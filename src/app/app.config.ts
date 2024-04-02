@@ -10,8 +10,8 @@ import { provideRouterStore } from '@ngrx/router-store';
 import { provideEntityData, withEffects } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { HttpClient, HttpClientModule, withFetch } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-    providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideStore(), provideEffects(), provideRouterStore(), provideEntityData(entityConfig, withEffects()), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), importProvidersFrom(HttpClientModule)]
+    providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideStore(), provideEffects(), provideRouterStore(), provideEntityData(entityConfig, withEffects()), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideHttpClient(withFetch())]
 };
