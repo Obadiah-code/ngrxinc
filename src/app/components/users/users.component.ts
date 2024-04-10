@@ -5,13 +5,15 @@ import * as UserSelector from '../../state/user/user.selector';
 import * as UserActions from '../../state/user/user.actions';
 import { MatButtonModule } from '@angular/material/button';
 import { User } from '../../models/user.model';
+import { slowly } from '../../scripper/animations';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [CommonModule, MatButtonModule],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.scss'
+  styleUrl: './users.component.scss',
+  animations: [slowly]
 })
 export class UsersComponent implements OnInit {
     

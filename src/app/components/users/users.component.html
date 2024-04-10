@@ -1,28 +1,35 @@
-<div *ngIf="!(loading$ | async)">
-    loading...
+
+<div class="placeholder-grow mx-3" *ngIf="loading$ | async" @slowly>
+    <div class="placeholder p-3 rounded-3 w-100">
+        <span>loading...</span>
+    </div>
 </div>
 
 <!-- {{ users$ | async | json }} -->
-<div class="my-2 p-1">
-    <button (click)="add()" mat-flat-button color="primary">Add</button>
-</div>
-<table class="table table-stripped" *ngIf="users$|async as users">
-    <thead>
-        <tr class="text-center">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td> {{user.id}} </td>
-            <td> {{user.name}} </td>
-            <td> {{user.email}} </td>
-            <td>
-                <button (click)="remove(user.id)" mat-raised-button>Remove <i class="fa fa-remove" aria-hidden="true"></i></button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<section *ngIf="!(loading$ | async)" @slowly>
+
+    <div class="my-2 p-1">
+        <button (click)="add()" mat-flat-button color="primary">Add</button>
+    </div>
+    <table class="table table-stripped" *ngIf="users$|async as users" @slowly>
+        <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td> {{user.id}} </td>
+                <td> {{user.name}} </td>
+                <td> {{user.email}} </td>
+                <td>
+                    <button (click)="remove(user.id)" mat-raised-button>Remove <i class="fa fa-remove"
+                            aria-hidden="true"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
