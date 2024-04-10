@@ -1,0 +1,25 @@
+<div class="row g-0 bg-primary p-3">
+    <button class="btn btn-light" (click)="add()" mat-button>Add</button>
+</div>
+<div class="px-3 py-2">
+    <!--     {{ products$ | async | json}} -->
+    <div [ngStyle]="{'height': h}" #tab0>
+        <!-- <table class="table table-striped text-center" *ngIf=" products$ | async as products" [ngStyle]="{'height': h+'px'}" #tab> -->
+        <table class="table table-striped text-center" *ngIf=" products$ | async as products" #tab>
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Prices </th>
+                    <th> Action </th>
+                </tr>
+            </thead>
+            <tr *ngFor="let product of products" @load0load>
+                <td @load0load> {{product.id}} </td>
+                <td @load0load> {{product.name}} </td>
+                <td @load0load> {{product.price}} </td>
+                <td @load0load> <button mat-button (click)="remove(product.id)"> remov </button> </td>
+            </tr>
+        </table>
+    </div>
+</div>

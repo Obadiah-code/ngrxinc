@@ -1,0 +1,28 @@
+<div *ngIf="!(loading$ | async)">
+    loading...
+</div>
+
+<!-- {{ users$ | async | json }} -->
+<div class="my-2 p-1">
+    <button (click)="add()" mat-flat-button color="primary">Add</button>
+</div>
+<table class="table table-stripped" *ngIf="users$|async as users">
+    <thead>
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td> {{user.id}} </td>
+            <td> {{user.name}} </td>
+            <td> {{user.email}} </td>
+            <td>
+                <button (click)="remove(user.id)" mat-raised-button>Remove <i class="fa fa-remove" aria-hidden="true"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

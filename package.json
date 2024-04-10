@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ngrxinc": "node dist/ngrxinc/server/server.mjs"
+    "serve:ssr:ngrxinc": "node dist/ngrxinc/server/server.mjs",
+    "api": "json-server api/db.json --routes api/routes.json --no-cors=true"
   },
   "private": true,
   "dependencies": {

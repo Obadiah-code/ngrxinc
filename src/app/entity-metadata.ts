@@ -7,5 +7,4 @@ const pluralNames = {};
 export const entityConfig: EntityDataModuleConfig = {
     entityMetadata,
     pluralNames,
-    
 };
